@@ -97,22 +97,30 @@
           <div ng-repeat="issue in issues" class="issue col-xs-12 col-md-6 col-print-6">
             <div class="panel panel-default" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="issue.name">
               <div class="panel-heading" ng-class="issue.name">
-                <span ng-class="issue.name + '-type'" ng-class="issue.name" class="pull-left issue-type-character">{{ issue.name[0] }}</span>
+                <!--<span ng-class="issue.name + '-type'" ng-class="issue.name" class="pull-left issue-type-character">{{ issue.name[0] }}</span>-->
                 <span class="priority pull-left" ng-class="'priority-' + issue.priority" ng-show="issue.name === 'Bug'">
                     {{ issue.priority }}
                   </span>
-                <span class="panel-title" ng-class="issue.name"><img class="visible-print-inline" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&format=svg&data={{issue.url}}" ng-show="configs.printQR" />
+                <span class="panel-title" ng-class="issue.name"><img class="visible-print-inline" />
+                                                                     <!--src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&format=svg&data={{issue.url}}" ng-show="configs.printQR" />-->
                   {{ issue.key }}
+                </span>
+                <span class="parent" ng-show="issue.parent">
+                   ({{issue.parent.key}})
                 </span>
               </div>
               <div class="panel-body" ng-class="issue.name">
                 {{ issue.summary }}
               </div>
               <div class="panel-footer" ng-class="issue.name + '-footer'">
-                <div class="pull-left component" ng-show="issue.components[0]">
+                <div class="pull-left assignee" ng-show="issue.assignee">
+                  <!--<img src="{{issue.assignee.avatorUrls.24x24}}" alt="assignee">-->
+                  {{issue.assignee.displayName}}
+                </div>
+                <!--<div class="pull-left component" ng-show="issue.components[0]">
                   {{issue.components[0].name}}
                 </div>
-                <div ng-hide="!issue.estimation" class="points pull-right" ng-class="issue.name">{{ issue.estimation }} <span class="hidden-print">points</span></div>
+                <div ng-hide="!issue.estimation" class="points pull-right" ng-class="issue.name">{{ issue.estimation }} <span class="hidden-print">points</span></div>-->
               </div>
             </div>
           </div>

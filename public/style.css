@@ -12,23 +12,32 @@ html, body {
   height: 3.8in;
 }
 
+div .panel .Task, div .panel .Task-footer {
+  background-color: #babdbd;
+}
+div .panel .Sub-task, div .panel .Sub-task-footer {
+  background-color: #d3d6d6;
+}
+
 .panel-heading {
+  border-bottom: 2px solid transparent;
   border-color: #b3b3b3;
 }
 
 .panel-default > .panel-heading {
   background-color: #fff;
-  margin-left: 1px;
+  /*margin-left: 1px;*/
 }
 
 .panel-title {
-  font-size: 27pt;
+  font-size: 20pt;
   font-weight: normal;
+  color: darkblue;
 }
 
 .panel-body {
   flex-grow: 3;
-  font-size: 25pt;
+  font-size: 23pt;
   font-weight: lighter;
   overflow: hidden;
 }
@@ -41,8 +50,8 @@ html, body {
   margin-left: 1px;
 }
 
-.component {
-  border: 1px solid #b3b3b3;
+.assignee {
+  border: 2px solid #fff;
   padding: 0px 5px;
   border-radius: 5pt;
 }
@@ -51,6 +60,11 @@ html, body {
   border: 1px solid #b3b3b3;
   padding: 0px 12px;
   border-radius: 50%;
+}
+
+.parent {
+  font-size: 18pt;
+  font-weight: normal;
 }
 
 .Bug-type, .priority, .Story-type {
