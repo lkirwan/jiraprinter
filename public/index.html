@@ -83,6 +83,9 @@
                 </ul>
               </div>
             </div>
+            <div ng-show="!!issues">
+              <label class="label"><input type="checkbox" ng-model="hideDescription"> Show Description</label>
+            </div>
           </div>
         </div>
         <div class="row hidden-print">
@@ -109,9 +112,18 @@
                    ({{issue.parent.key}})
                 </span>
               </div>
+
               <div class="panel-body" ng-class="issue.name">
-                {{ issue.summary }}
+
+                <div ng-class="issue.name" class="issue-name">
+                  {{ issue.summary }}
+                </div>
+                <div ng-style="issue.description" ng-show="hideDescription">
+                  {{ issue.description }}
+                </div>
+
               </div>
+
               <div class="panel-footer" ng-class="issue.name + '-footer'">
                 <div class="pull-left assignee" ng-show="issue.assignee">
                   <!--<img src="{{issue.assignee.avatorUrls.24x24}}" alt="assignee">-->

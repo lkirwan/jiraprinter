@@ -2,4 +2,16 @@
   @page {
     size: landscape;
   }
+
+  div .panel .Task, div .panel .Task-footer {
+    background-color: #babdbd !important;
+  }
+
+  div .panel .Sub-task, div .panel .Sub-task-footer {
+    background-color: #d3d6d6 !important;
+  }
+
+  .panel-title {
+    color: darkblue !important;
+  }
 }

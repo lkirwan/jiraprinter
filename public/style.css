@@ -42,6 +42,10 @@ div .panel .Sub-task, div .panel .Sub-task-footer {
   overflow: hidden;
 }
 
+.issue-name {
+  font-weight: bold;
+}
+
 .panel-footer {
   font-weight: normal;
   border: none;
@@ -65,6 +69,12 @@ div .panel .Sub-task, div .panel .Sub-task-footer {
 .parent {
   font-size: 18pt;
   font-weight: normal;
+}
+
+.label {
+  font-size: 12pt;
+  font-weight: normal;
+  color: #000 !important;
 }
 
 .Bug-type, .priority, .Story-type {
