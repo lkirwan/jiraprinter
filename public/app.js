@@ -23,6 +23,7 @@ module.controller('ApplicationController', function ($scope, $resource, $window,
   $scope.supported_apis = ['Filters', 'Boards']
   $scope.apiType = $scope.supported_apis[0]
   $scope.preferred_issuetypes = ['Story', 'Bug']
+  $scope.closed_issuestatus = ['Done']
   $scope.issuetype = $scope.preferred_issuetypes[0]
   IssueTypes.query(function (issuetypes) {
     $scope.issuetypes = _.difference(issuetypes, $scope.preferred_issuetypes)

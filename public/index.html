@@ -86,7 +86,8 @@
             </div>
             <div ng-show="!!issues">
               <label class="label"><input type="checkbox" ng-model="hideDescription"> Show Description</label>
-              <label class="label"><input type="checkbox" ng-model="hideAssignee"> Show Assignee</label>
+              <label class="label"><input type="checkbox" ng-model="hideAssignee"> Hide Assignee</label>
+              <label class="label"><input type="checkbox" ng-model="hideClosed"> Hide Completed Cards</label>
             </div>
           </div>
         </div>
@@ -100,7 +101,8 @@
             Loading...
           </div>
           <div ng-repeat="issue in issues" class="issue col-xs-12 col-md-6 col-print-6">
-            <div class="panel panel-default" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="issue.name">
+
+            <div class="panel panel-default" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="issue.name" ng-hide="!!hideClosed  && closed_issuestatus.indexOf(issue.status)!=-1">
               <div class="panel-heading" ng-class="issue.name">
                 <!--<span ng-class="issue.name + '-type'" ng-class="issue.name" class="pull-left issue-type-character">{{ issue.name[0] }}</span>-->
                 <span class="priority pull-left" ng-class="'priority-' + issue.priority" ng-show="issue.name === 'Bug'">
@@ -111,7 +113,7 @@
                   {{ issue.key }}
                 </span>
                 <br />
-                <span class="parent" ng-show="issue.parent">
+                <span class="parent" ng-show="!!issue.parent">
                    ({{issue.parent.fields.summary}})
                 </span>
               </div>
@@ -121,14 +123,14 @@
                 <div ng-class="issue.name" class="issue-name">
                   {{ issue.summary }}
                 </div>
-                <div ng-style="issue.description" ng-show="hideDescription">
+                <div ng-style="issue.description" ng-show="!!hideDescription">
                   {{ issue.description }}
                 </div>
 
               </div>
 
-              <div class="panel-footer" ng-class="issue.name + '-footer'" ng-show="hideAssignee">
-                <div class="pull-left assignee" ng-show="issue.assignee">
+              <div class="panel-footer" ng-class="issue.name + '-footer'" ng-hide="!!hideAssignee">
+                <div class="pull-left assignee" ng-show="!!issue.assignee">
                   <!--<img src="{{issue.assignee.avatorUrls.24x24}}" alt="assignee">-->
                   {{issue.assignee.displayName}}
                 </div>
